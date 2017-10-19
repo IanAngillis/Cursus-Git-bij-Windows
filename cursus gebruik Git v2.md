@@ -37,13 +37,16 @@ git config --global user.email jouwEmailadres
 Om te beginnen heb je een map nodig waarin je je project gaat maken. Je navigeert naar de plaats waar je die map wil plaatsen:  ‘cd [pad]’. Want standaard kom je immers in het gebruikersaccount tercht.  
 Wij noemen deze map: ‘EersteProject’ en zetten die in de Documenten map op onze computer.  
 ```
-C:\Users\UsersName> cd .\Documents\
+C:\Users\UsersName> cd .\Documents\			
 C:\Users\UsersName\Documents> mkdir .\EersteProject\
 ```
+![C:\Users\UserName> cd.\Documents\](images/commando1.PNG)
+![C:\Users\UserName> cd.\Documents\](images/commando1.PNG)
 Nu gaan we in die map staan:  
 ```
 C:\Users\UsersName\Documents> cd .\EersteProject\
 ```
+![C:\Users\UsersName\Documents> cd .\EersteProject\](images/commando2.PNG)
 En je krijgt dan:  
 ```
 C:\Users\UsersName\Documents\EersteProject>
@@ -56,6 +59,7 @@ C:\Users\UsersName\Documents\EersteProject> git init
 Initialized empty Git repository in C:/Users/UsersName/Documents/EersteProject/.git/
 C:\Users\UsersName\Documents\EersteProject>
 ```
+![C:\Users\UsersName\Documents\EersteProject> git init](images/commando3.PNG)
 Je kan nu bijvoorbeeld 'git status' uitvoeren, dit commando zal wat informatie over de huidige git repository tonen. Onder andere de huidige branch (master in dit geval) wordt getoond. 
 ```
 > git status
@@ -65,12 +69,14 @@ Initial commit
 
 nothing to commit (create/copy files and use "git add" to track)
 ```
+![>git status](images/commando4.PNG)
 Normaal gezien moet je steeds iemand eigenaar maken van het project, zodat Git weet wie de wijzigingen in dit project doet.   
 Indien je twijfelt, kan je altijd opvragen wie de huidige eigenaar is. Dit doe je met:  
 
 ```
 C:\Users\UsersName\Documents\EersteProject> git config user.name  
 ```
+![C:\Users\UsersName\Documents\EersteProject> git config user.name](images/commando5.PNG)
 
 Uiteraard is het ook mogelijk dat de juiste gebruiker reeds ingesteld is.
 Iemand eigenaar maken doe je dan als volgt:  
@@ -80,7 +86,8 @@ C:\Users\UsersName\Documents\EersteProject> git config --global user.name 'gebru
 C:\Users\UsersName\Documents\EersteProject> git config --global user.email gebruikersemail
 
 ```
- 
+![C:\Users\UsersName\Documents\EersteProject> git config --global user.name/email 'gebruikersnaam/email'](images/commando6.PNG)
+
 Indien je iemand enkel van dit project gebruiker wil maken, laat je die global in bovenstaande commando's weg.  
 
 Je hebt nu een lokaal project klaar staan om met versiebeheer in te werken. Momenteel is dit project wel nog leeg, dus gaan we verder met het toevoegen van bestanden.
@@ -104,7 +111,7 @@ Dit kan je in kladblok maken en bij opslaan als kiezen voor ‘alle bestanden’
 ```
 C:\Users\UsersName\Documents\EersteProject>notepad.exe readme.md
 ```
-(plaats afbeelding)  
+![C:\Users\UsersName\Documents\EersteProject>notepad.exe readme.md](images/commando7.PNG)
 
 Nu opent kladblok en krijg je een pop-up: dit bestand bestaat niet, moet ik dit aanmaken? Je klikt ja. 
  
@@ -115,6 +122,8 @@ Je typt nu ‘git status’: Je krijgt de melding dat er nog ‘Untracked files�
 ```
 C:\Users\UsersName\Documents\EersteProject> git status
 ```
+![C:\Users\UsersName\Documents\EersteProject> git status](images/commando8.PNG)
+
 Je ziet in de output van dit commando dat er Untracked Files zijn. Deze files zijn nog niet toegevoegd en staan enkel lokaal in je Working Area.
 In sommige CLI's met specifieke functies voor Git, kan de naam van de branch in het rood weergegeven worden. Dit wil zeggen dat je working area niet gelijk is aan je repo.   
 Het is niet omdat het in de map zit, dat het ook in Git zit. (zie slides en vorige deel van de cursus; Working area vs Staging area vs repository)  
@@ -123,6 +132,8 @@ git add bestandsnaam
 ```
 C:\Users\UsersName\Documents\EersteProject> git add readme.md
 ```
+![C:\Users\UsersName\Documents\EersteProject> git add readme.md](images/commando9.PNG)
+
 Als je meerdere bestanden hebt die je wil toevoegen, ga je ze niet op die manier toevoegen aan de Staging area, maar doe je alles in 1 keer:  
 ```
 C:\Users\UsersName\Documents\EersteProject> git add . 
@@ -133,17 +144,19 @@ Voer het volgende commando uit:
 ```
 C:\Users\UsersName\Documents\EersteProject> git config --global core.editor "notepad" 
 ```
+![C:\Users\UsersName\Documents\EersteProject> git config --global core.editor "notepad" ](images/commando10.PNG)
+
 git commit : op deze manier opent zich nu kladblok/notepad, opdat je een commitboodschap kan meegeven. Geef altijd een duidelijke boodschap mee, met wat veranderd is ten opzichte van de vorige versie. Dit is handig als je ooit een vorige versie van je project nodig hebt.  
 Je kan ook *git commit -m “boodschap” * ingeven. Nu krijg je geen pop-up meer, want je geeft op deze manier de commit boodschap als parameter mee met het commando.
 Na deze acties heb je dus je bestanden, die eerst enkel in je Working area zaten, ook in de Staging area geplaatst en nadien een versie van je project bewaard in de repository.
 Omdat alles lokaal staat, zie je misschien niet of er veranderingen zijn. Hiervoor kan je altijd git status gebruiken. Die geeft aan wat in welke area zit en of er nog dingen niet gecommit zijn.  
 
-   
+![C:\Users\UserName\Documents\EersteProject>git commit -m "boodschap"](images/commando11.PNG)
 
 ### *Oefeningen*
 Voeg nog 2 bestanden toe, maar geen binaire bestanden zoals .docx, maar simpele .txt of .md bestanden. Breng 3 wijzigingen aan in die bestanden en doe na iedere verandering een add en een commit.  
 Doe nu een ''' git status ''' en bekijk aandachtig de boodschap die je nu krijgt.  
-(plaats afbeelding)  
+![C:\Users\UsersName\Documents\EersteProject> git status](images/commando12.PNG)
 
 Kies 2 verschillende commits en ga na wat de verschillen zijn tussen de 2. Doe ```git diff commit_id1 commit_id2```  
 
@@ -158,19 +171,21 @@ index 150cc1f..16c86eb 100644
 \ No newline at end of file
 +### HOI ALLEMAAL
 ```
+![C:\Users\UsersName\Documents\EersteProject> git diff commit_id1 commit_id2](images/commando13.PNG)
 
-Alle mogelijkheden met betrekking tot gebruik opgelijst :[git diff](https://git-scm.com/docs/git-diff)  
+Alle mogelijkheden met betrekking tot gebruik opgelijst :[git diff](https://git-scm.com/docs/git-diff)  
 Er wordt door Git een tree opgebouwd, waarin de verschillende commits worden opgenomen. Wil je deze tree zien, dan doe je:
 
 ```
 C:\Users\UsersName\Documents\EersteProject> git worktree list
 ```
+![C:\Users\UsersName\Documents\EersteProject> git worktree list](images/commando14.PNG)
 
 Wil je de info duidelijker krijgen:  
 ```
 C:\Users\UsersName\Documents\EersteProject> git worktree list --porcelain
 ```  
-(plaats afbeelding)  
+![C:\Users\UsersName\Documents\EersteProject> git worktree list --porcelain](images/commando15.PNG)
 
 ## Lokale repo pushen naar remote.
 ### Te gebruiken commando's:
@@ -203,11 +218,11 @@ Vermits je lokaal je project al volledig klaar hebt staan, ga je dit nu nog moet
 C:\Users\UsersName\Documents\EersteProject>git remote add origin https://github.com/gebruikersnaam/projectnaam.git 
 C:\Users\UsersName\Documents\EersteProject>git push -u origin master
 ```
-(plaats afbeelding)  
+
 
 Nu heb je een link gelegd met GitHub en heb je je project geüploaded naar GitHub. En dan krijg je een boodschap wat hij doet en als laatste moet dan staan: ‘Branch master set up to track remote branch master from origin'.  
 
-(plaats afbeelding) 
+![C:\Users\UsersName\Documents\EersteProject>git push -u origin master](images/commando16.PNG)
 
 Maak nu in Windows verkenner in de projectmap een tekstbestand testBestand.txt .   
 
@@ -215,11 +230,13 @@ Maak nu in Windows verkenner in de projectmap een tekstbestand testBestand.txt .
 
 Aan de prompt typ je ls. Je ziet dat in het project nu 2 bestanden zitten, maar dit zegt niet veel. Bij een git status zie je nu dat de nieuwe file opnieuw aangegeven wordt bij Untracked Files. Je krijgt de boodschap dat je branch up-to-date is met ‘origin/master’, maar dat er wel nog een bestand in zit, dat niet tot het Git project behoort (en dus enkel in de lokale Working area zit). En je krijgt dan de boodschap hoe je dat bestand kan opnemen in de staging area, zodat bij een volgende commit het automatisch in je masterbranch zit.  
 
-(plaats afbeelding)   
+![C:\Users\UsersName\Documents\EersteProject>git status](images/commando17.PNG) 
 
 Je doet dus terug ```C:\Users\UsersName\Documents\EersteProject>git add testbestand.txt``` om het bestand te stagen.
 Nu doen we weer een commit en *lokaal* zit alles in de master branch. Maar om deze versie nu ook online te plaatsen in de repository op GitHub, moet je opnieuw een push commando utivoeren.
 Dus doe je nu weer: ```C:\Users\UsersName\Documents\EersteProject> git push -u origin master ```. Hierna heb je lokaal en remote dezelfde versie van je project staan.  
+
+![C:\Users\UsersName\Documents\EersteProject> git push -u origin master](images/commando18.PNG)
 
 ## Remote pullen naar lokaal.
 ### Te gebruiken commando's:
@@ -233,7 +250,7 @@ Dit doe je met git pull origin master. Als er niets gewijzigd is, krijg je : Alr
 ```
 C:\Users\UsersName\Documents\EersteProject>git pull origin master
 ```
-(plaats afbeelding)  
+![C:\Users\UsersName\Documents\EersteProject>git pull origin master](images/commando19.PNG)
 
 Maar nu ga je een verandering aanbrengen remote: Zet in het bestand ‘testBestand.txt’ wat tekst via de GitHub website.
 
@@ -247,11 +264,11 @@ In dit venster zet je tekst in het bestand. Je vult een commit boodschap in en k
 Maar nu staat die aanpassing wel online, maar die zit niet in onze lokale repo.  
 Laat je echter niet vangen: als je nu lokaal git status doet, ga je nog krijgen dat alles ok is, aangezien je lokale git niet weet dat er remote wijzigingen gedaan zijn in je repo. Git status gaat namelijk enkel kijken of jij lokaal nog iets hebt toegevoegd, dat nog niet gecommit is. Nu gebruik je   
 
- ```C:\Users\UsersName\Documents\EersteProject]>git pull origin master```   
+ ```C:\Users\UsersName\Documents\EersteProject]>git pull origin master```
 
 en nu krijg je weer een hele lijst van acties. Als je gaat kijken dan zegt de tekst dat 1 bestand gewijzigd is. 
 
-(plaats afbeelding)
+![C:\Users\UsersName\Documents\EersteProject>git pull origin master](images/commando20.PNG)
  
 >**Dus**: voordat je lokaal begint te werken altijd een pull doen, ook al lijkt alles ok, bijvoorbeeld na een git status commando.  
 Zo vermijd je al een eerste reeks problemen, wanneer je jouw aanpassingen wil pushen naar remote. 
@@ -268,15 +285,15 @@ In GitHub voeg je in het testbestand.txt een tweede regel tekst toe en commit di
 
 Lokaal ga je in testbestand.txt ook een tweede regel tekst toevoegen.  
 
-(plaats afbeelding) 
+![testbestandLokaal](images/commando21.PNG)
  
 Nu open je PowerShell. In je project folder doe je git status. Nu zie je dat je lokaal iets hebt veranderd en dat je dat nog moet toevoegen aan je project. Doe nu weer git add testBestand.txt en een commit. Nu ga je dit naar je remote repo pushen.  
 
-(plaats afbeelding)   
+[!C:\Users\UsersName\Documents\EersteProject>git push -u origin master](images/commando22.PNG)
 
 Oei, dit lukt precies niet: remote staat er een andere versie van je project dan die, die je lokaal gewijzigd hebt. Voorstel is om eerst een git pull uit te voeren, zodat je lokaal project up-to-date is. Dit ga je nu proberen.   
 
-(plaats afbeelding) 
+![C:\Users\UsersName\Documents\EersteProject>git pull origin master](images/commando23.PNG)
 
 Maar ook dit gaat niet zomaar: je ziet dat er nu 2 reeksen getallen verschijnen en dat er een tweerichtingspijl na master staat. Dit wil zeggen dat je dit eerst moet oplossen, voordat je verder kunt. Je opent nu het bestand waar zich een ‘Merge conflict’ voordoet.   
 Dit doe je via de prompt: notepad.exe .\testbestand.txt. Nu opent zich het bestand en je ziet dat beide aanpassingen in je document zijn opgenomen, maar dat er nog dingen zijn bijgekomen.   
@@ -290,7 +307,7 @@ Jij moet nu bepalen wat juist is. Met andere woorden, je gaat het bestand manuee
 
 Ga dit terug toevoegen en committen. Nu push je dit terug naar remote. Je ziet dat het nu wel lukt.  
 
-(plaats afbeelding) 
+![C:\Users\UsersName\Documents\EersteProject>git push -u origin master](images/commando24.PNG)
   
 En in je browser refresh je GitHub, je gaat kijken naar de commits en zie je de veschillende commits.  
 
@@ -326,16 +343,16 @@ Je maakt nu een nieuwe branch ‘develop’ met git branch develop.
 C:\Users\UsersName\Documents\EersteProject> git branch develop
 ```
 
-(plaats afbeelding)  
+![C:\Users\UsersName\Documents\EersteProject> git branch develop](images/command25.PNG)
 
 Met ```git checkout develop ``` switch je naar de branch develop. Nu ga je GitHub ook laten weten dat je een nieuwe branch hebt: ```git push origin develop```  
 Op GitHub is er nu een branch bijgekomen.  
 
-(plaats afbeelding)     
+![newBranch](images/commando26.PNG)
 
 En de inhoud is identiek aan de master branch   
 
-(plaats afbeelding)    
+![evenWithMaster](images/commando27.PNG)
  
 Maar nu komt het: hoe weet je nu welke repo branch er lokaal staat? Dit kan je altijd bekijken met het git status commando. Er zijn ook andere CLI's of GUI's die de huidige actieve branch opvallender tonen, hiermee zal je vroeg of laat ook zeker nog mee in aanraking komen.
 Sluit de shell af met exit aan de prompt te typen en dan enter te drukken.  
